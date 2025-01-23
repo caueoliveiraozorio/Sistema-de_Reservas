@@ -28,6 +28,7 @@ $reservas = $conn->query("SELECT r.id, u.nome as usuario, e.nome as espaco, r.da
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Reservas</title>
+    <link rel="stylesheet" href="reservas.css">
 </head>
 <body>
 <h1>Reservas</h1>
