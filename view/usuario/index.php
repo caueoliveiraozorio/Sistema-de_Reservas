@@ -11,15 +11,18 @@ $usuario = $userController->GetAllUser();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href= './usuario.css'>
 </head>
 <body>
-    <a href="../cadastrarUsuario/index.php"><button>Cadastrar</button></a>
-    <table border = '1'>
+    <div class = 'container'>
+    
+    <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <!--<th type>Id</th>-->
                 <th>Nome</th>
-                <th>Senha</th>
+                <th>Email</th>
+                <th>Telefone</th>
                 <th>Ações</th>
                 
             </tr>
@@ -30,15 +33,18 @@ $usuario = $userController->GetAllUser();
             ?>
 
                     <tr>
-                        <td> <?php echo $item ['id'] ?></td>
+                        <!--<td> <?php echo $item ['id'] ?></td>-->
                         <td> <?php echo $item ['nome'] ?></td>
                         <td> <?php echo $item ['email'] ?></td>
                         <td> <?php echo $item ['telefone'] ?></td>
-                        <!-- <td> <a href="../cadastrar/index.php?id=<?php echo $item["id"] ?>"><button>Editar</button></a>
-                        <form action="../../backend/router/userRouter.php?acao=deletar" method = "POST">
+                        <div class = 'actions'>
+                        <td> <a href="../../view/cadastrarUsuario/index.php?id=<?php echo $item["id"] ?>"><button class = 'editar'>Editar</button></a>
+                        <form action="../../router/usuarioRouter.php?acao=deletar" method = "POST">
                             <input type="hidden" name="IdUsuario" value ="<?php echo $item['id']?>">
-                            <button type="submit">Delete</button>
-                        </form> -->
+                            <button type="submit" class = 'deletar'>Delete</button>
+                            
+                        </form> 
+                        </div>
                     </td>
     
                     </tr>
@@ -46,6 +52,8 @@ $usuario = $userController->GetAllUser();
                 }
             ?>
         </tbody>
+        <a href="../cadastrarUsuario/index.php"><button>Cadastrar</button></a>
     </table>
+    </div>
 </body>
 </html>
