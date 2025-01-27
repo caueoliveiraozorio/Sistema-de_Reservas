@@ -15,7 +15,8 @@ class SpaceController{
 
     public function createSpace($nome,$tipo,$capacidade, $descricao){
         try {
-            $sql = "INSERT INTO espaco (nome,tipo,capacidade, descricao) VALUES (:nome, :tipo, :capacidade, :descricao)";
+            echo 'ta chegando aqui';
+            $sql = "INSERT INTO espacos (nome,tipo,capacidade, descricao) VALUES (:nome, :tipo, :capacidade, :descricao)";
             $db = $this->conn->prepare($sql);
             $db->bindParam(":nome", $nome);
             $db->bindParam(":tipo", $tipo);
@@ -27,13 +28,13 @@ class SpaceController{
                     return false;
             }
             } catch (\Exception $th){
-    
+                return $th->getMessage();
             }
         }
 
         public function UpdateSpace($id, $nome, $tipo, $capacidade, $descricao){
             try {
-                $sql = 'UPDATE espaco SET nome = :nome, tipo = :tipo, capacidade = :capacidade, descricao = :descricao WHERE id = :id';
+                $sql = 'UPDATE espacos SET nome = :nome, tipo = :tipo, capacidade = :capacidade, descricao = :descricao WHERE id = :id';
                 $db = $this->conn->prepare($sql);
                 $db->bindParam(':nome', $nome);
                 $db->bindParam(':tipo', $tipo);
@@ -54,7 +55,7 @@ class SpaceController{
 
         public function GetAllSpace(){
             try{
-                $sql = "SELECT * FROM espaco";
+                $sql = "SELECT * FROM espacos";
                 $db = $this -> conn -> prepare($sql);
                 $db-> execute();
                 $user = $db->fetchAll(PDO::FETCH_ASSOC);
@@ -68,7 +69,7 @@ class SpaceController{
         public function GetSpaceById($id){
         
             try {
-                $sql = 'SELECT * from espaco WHERE id = :id';
+                $sql = 'SELECT * from espacos WHERE id = :id';
                 $db = $this->conn->prepare($sql);
                 $db->bindParam(':id', $id);
                 $db->execute();
@@ -82,7 +83,7 @@ class SpaceController{
 
         public function DeleteSpace($id){
             try {
-                $sql = 'DELETE FROM espaco WHERE id =:id';
+                $sql = 'DELETE FROM espacos WHERE id =:id';
                 $db = $this->conn->prepare($sql);
                 $db->bindParam(':id', $id);
                 if ($db->execute()){

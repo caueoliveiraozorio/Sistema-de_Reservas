@@ -10,10 +10,12 @@ if ($_SERVER["REQUEST_METHOD"]=='POST'){
             $tipo = $_POST['tipo'];
             $capacidade = $_POST['capacidade'];
             $descricao = $_POST['descricao'];
+            var_dump($_POST);
 
 
             if(!(empty($nome) || empty($tipo) || empty($capacidade) || empty($descricao))){
                 $resposta = $espacoController->createSpace($nome,$tipo,$capacidade, $descricao);
+
                 if($resposta){
                     header("Location:../view/espaco/index.php");
                 }
