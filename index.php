@@ -10,7 +10,7 @@
 <nav>
     <a href="./view/cadastrarEspaco/index.php">Espaços</a>
     <a href="./view/usuario/index.php">Usuários</a>
-    <a href="./view/cadastrarReservas/index.php">Reservas</a>
+    <a href="./view/reservas/index.php">Reservas</a>
 </nav>
 <div class="container">
     <h1>Bem-vindo ao Sistema de Reservas</h1>
